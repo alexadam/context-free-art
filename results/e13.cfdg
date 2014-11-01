@@ -1,0 +1,31 @@
+//CF::Tile = [s 50 50] 
+//CF::Symmetry = CF::Dihedral, 13
+//CF::Symmetry = CF::Cyclic, 2
+//CF::Symmetry = CF::Dihedral, 4, 2, 1, 30 
+
+CF::Background = [hue 48  sat 1 b 1 ] //[h 35 sat 0.5 b -0.1]
+
+startshape SHAPE1
+
+shape SHAPE1
+	{
+		loop 1 [] SHAPE2 [ r 0..360]
+	}
+
+shape SHAPE2
+	{
+		SHAPE3 []
+		SHAPE3 [flip 90]
+	}
+
+shape SHAPE3
+	rule {
+		SQUARE []
+		SHAPE3 [x 1 r 0.25 s 0.99 b 0.005 z -1] //try to remove b
+	}
+	rule 0.1 {
+		SHAPE3 [flip 1] //r 10
+	}
+	rule 0.2 {
+		SHAPE3 []
+	}

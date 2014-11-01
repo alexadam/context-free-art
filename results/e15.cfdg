@@ -1,0 +1,29 @@
+//CF::Tile = [s 50 50] 
+//CF::Symmetry = CF::Dihedral, rand(5,15) //rand(1,100)
+//CF::Symmetry = CF::Cyclic, 7
+//CF::Symmetry = CF::Dihedral, 5, 2, 1, 30
+
+CF::Background = [hue 0  sat 1 b -1 ] //[h 35 sat 0.5 b -0.1]   CF::Background=[h 70 sat 0.4 b -0.3 ]
+
+startshape SHAPE1
+
+shape SHAPE1 {
+
+	a1 = rand(-100, 100)
+	a2 = rand(-100, 100)
+	a3 = rand(-100, 100)
+	a4 = rand(-100, 100)
+
+	SHAPE2 (a1, a2, a3, a4) [[x 40 y 10 s 6 sat 0 b 0.9 hue 100 r -2]]
+}
+
+shape SHAPE2(a1, a2, a3, a4) {
+	SHAPE3 (a1, a2, a3, a4) []
+	SHAPE3 (a1, a2, a3, a4) [flip 180]
+	SHAPE2 (a1, a2, a3, a4) [s 0.999 b -0.001 ]
+}
+
+path SHAPE3 (a1, a2, a3, a4) {
+	MOVETO(-5,0)
+	CURVETO(a1, a2, a3, a4)
+}

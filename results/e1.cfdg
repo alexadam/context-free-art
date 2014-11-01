@@ -1,0 +1,47 @@
+startshape SHAPE1
+
+CF::Background = [sat 0 b 1]
+//CF::Tile = [s 50 50] 
+//CF::Symmetry = CF::Dihedral, 6
+
+shape SHAPE1
+{
+	SHAPE2 [b -.8 r 0..360]
+}
+
+shape SHAPE2
+{
+	SHAPE3 []
+	SHAPE3 [flip 90]
+}
+
+shape SHAPE3
+rule {
+	SHAPE4 [r 90]
+	SHAPE3 [x 10 r 355.25 s 0.99 b 0.005 z -1]
+}
+rule 0.1 {
+	SHAPE3 [flip 0]
+}
+rule 0.2 {
+	SHAPE3 []
+}
+
+shape SHAPE4
+	{loop 10  [[r .1  x 1]] SHAPE5 [] }
+
+shape SHAPE5
+	rule { SHAPE5 [y .1]  }
+	rule { 
+	  SHAPE6 [] 
+	}
+ 
+shape SHAPE6
+	{ loop 500 [[y 1 a -0.01]] SHAPE7 [] } //test with different loops
+
+shape SHAPE7
+	rule { SHAPE7 [ x 2 ] }
+	rule {SQUARE []}
+
+
+

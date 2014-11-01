@@ -1,0 +1,18 @@
+//CF::Tile = [s 10 10] 
+CF::Symmetry = CF::Dihedral, rand(5,15) //rand(1,100)
+//CF::Symmetry = CF::Cyclic, 2
+//CF::Symmetry = CF::Dihedral, 5, 2, 1, 30
+
+startshape SHAPE1
+ 
+shape SHAPE1
+	{
+		SHAPE2 []
+	}
+ 
+shape SHAPE2
+	{
+		TRIANGLE [b 0]
+		TRIANGLE [s 0.9925 b 1]
+		SHAPE2 [x -0.02 s 0.96 r 2]
+	}

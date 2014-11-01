@@ -1,0 +1,30 @@
+//CF::Tile = [s 50 50] 
+//CF::Symmetry = CF::Dihedral, 2
+//CF::Symmetry = CF::Cyclic, 4
+//CF::Symmetry = CF::Dihedral, 4, 2, 1, 30 
+
+CF::Background = [b -1]
+
+startshape SHAPE1
+
+shape SHAPE1
+{
+	steps = rand(1,10)
+	loop steps [] { SHAPE2 []}
+}
+
+shape SHAPE2
+{
+	hu = rand(0,360) 
+	steps = 1000
+
+	f1 = rand(1,10000)
+	f2 = rand(1,10000)
+
+	loop i = steps [ y 0.05  r (steps/360)] //(steps/360)  rand(-10,10) flip 45
+	{
+		//SQUARE CIRCLE TRIANGLE
+		CIRCLE [b 1 sat (i/steps) s (rand(5,15) * (sin(6.28 * f1 * i / steps) * sin(6.28 * f2 * i/ steps))) 1 h (hu * i/steps) a -0.8 ]
+	}
+
+}

@@ -1,0 +1,42 @@
+//CF::Tile = [s 50 50] 
+CF::Symmetry = CF::Dihedral, rand(5,15)
+//CF::Symmetry = CF::Cyclic, 3
+//CF::Symmetry = CF::Dihedral, 4, 2, 1, 30
+
+CF::Background = [hue 0  sat 1 b -1 ]
+
+startshape SHAPE1
+
+CF::Background=[h 70 sat 0.4 b -0.3 ]
+
+shape SHAPE1 {
+	SHAPE2 [[sat 1 b 0.7 z 1]]
+}
+
+shape SHAPE2 {
+	loop i = 40 [x 1] {
+		loop j = 20 [y 1] {
+			rnd1 = rand(100)
+
+			if (rnd1 < 33) {			
+				SQUARE [s rand(1.1,1.2) y rand(-2,2) hue (360 * sin(6.28 * rand(10) * i * j / 400)) r rand(90) alpha 0.8 b rand(-1, 1)  sat rand(-1, 1)]
+			} else if (rnd1 >= 33 && rnd1 < 66) {
+				TRIANGLE [s rand(1.1,1.2) y rand(-2,2) hue (360 * sin(6.28 * rand(10) * i * j / 400)) r rand(90) alpha 0.8 b rand(-1, 1)  sat rand(-1, 1)]
+			} else {
+				CIRCLE [s rand(1.1,1.2) y rand(-2,2) hue (360 * sin(6.28 * rand(10) * i * j / 400)) r rand(90) alpha 0.8 b rand(-1, 1)  sat rand(-1, 1)]
+			}
+
+			rnd2 = rand(100)
+
+			if (rnd2 < 33) {			
+				SQUARE [s rand(1.1,1.2) y rand(-2,2) hue (360 * sin(6.28 * rand(10) * i * j / 400)) r rand(90) alpha 0.8 b rand(-1, 1)  sat rand(-1, 1)]
+			} else if (rnd2 >= 33 && rnd2 < 66) {
+				TRIANGLE [s rand(1.1,1.2) y rand(-2,2) hue (360 * sin(6.28 * rand(10) * i * j / 400)) r rand(90) alpha 0.8 b rand(-1, 1)  sat rand(-1, 1)]
+			} else {
+				CIRCLE [s rand(1.1,1.2) y rand(-2,2) hue (360 * sin(6.28 * rand(10) * i * j / 400)) r rand(90) alpha 0.8 b rand(-1, 1)  sat rand(-1, 1)]
+			}
+
+		}
+	}
+}
+

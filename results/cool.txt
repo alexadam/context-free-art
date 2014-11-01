@@ -1,0 +1,1383 @@
+CF::Background = [b -.8]
+startshape R1 [sat 0 b 1]
+
+shape R1
+
+rule {
+  SQUARE []
+  R1 [x .5 s .89..1.1 r -2..2]
+}
+
+rule .04 {
+  SQUARE []
+  loop 100 [x .01 r .9] SQUARE [s .89..1.1]
+  R1 [r 90 x .66 y .66]
+}
+
+rule .0075 {
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+CF::Background = [sat 0 b -1]
+startshape circle [sat 1 b 1]
+
+shape circle {
+  # Draw 16 feathers with different hues and rotated around a center.
+  loop 16 [h 22.5 r 22.5] feather []
+}
+
+shape feather {
+  # Draw a feather of skewed (sheared) circles.
+  CIRCLE []
+  feather [s .9 x  2 skew -10..10 -10..10]
+  feather [s .4 y  2 r 22.5]
+  feather [s .4 y -2 r -22.5]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background=[ b -0.5 sat 1 hue 75]
+CF::Tile = [s 1.3 1.4]
+
+shape R1 {
+	R2[ sat 1 hue 10 b 1 ]
+}
+
+shape R2
+rule {
+	R3[]	
+	R2[ r ( rand(0,5)-1.5) x 0.3  ]
+}
+
+rule 10% {
+	R3[]	
+	R2[s 0.95 b -0.005  h 5]
+
+}
+
+rule 0.5% {
+	R3[]
+	R2[s 0.95 b -0.005  h 5]
+	R1[r 77 s 0.95]
+}
+
+rule 0.02% {
+}
+
+shape R3 {
+	SQUARE[s 1.2 b -1]
+	SQUARE[x -0.2]
+	SQUARE[x 0.2]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background=[ b -0.5 sat 1 hue 75]
+
+shape R1 {
+	R2[ sat 1 hue 10 b 1 ]
+}
+
+shape R2
+rule {
+	R3[]	
+	R2[ r ( rand(0,5)-1.5) x 0.3  ]
+}
+
+rule 10% {
+	R3[]	
+	R2[s 0.95 b -0.005  h 5]
+
+}
+
+rule 0.5% {
+	R3[]
+	R2[s 0.95 b -0.005  h 5]
+	R1[r 77 s 0.95]
+}
+
+rule 0.02% {
+}
+
+shape R3 {
+	SQUARE[s 1.2 b -1]
+	SQUARE[x -0.2]
+	SQUARE[x 0.2]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background=[ b -0.5 sat 1 hue 75]
+CF::Tile = [s 1.3 1.4]  // +- 
+
+shape R1 {
+	R2[ sat 1 hue 10 b 1 ]
+}
+
+shape R2
+rule {
+	R3[]	
+	R2[ r ( rand(0,5)-1.5) x 0.3  ]
+}
+
+rule 5% {
+	R3[]	
+	R2[s 0.95 b -0.005  h 5]
+
+}
+
+rule 0.5% {
+	R3[]
+	R2[s 0.95 b -0.005  h 5]
+	R1[r 77 s 0.95]
+}
+
+rule 2% {
+}
+
+rule 5% {
+  SQUARE []
+  R1 [x .5 s .89..1.1 r -2..2]
+}
+
+rule 3% {
+  SQUARE []
+  loop 100 [x .01 r .9] SQUARE [s .89..1.1]
+  R1 [r 90 x .66 y .66]
+}
+
+shape R3 {
+	SQUARE[s 1.2 b -1]
+	SQUARE[x -0.2]
+	SQUARE[x 0.2]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+N=4000000
+F=rand_static(360)
+CF::Background=[b -1]
+CF::Impure= 1
+CF::Size  =[s 6 4.5]
+
+startshape R1 (-0.3,0,0)[r 65 h-18]
+
+shape R1(i,X,Y) 
+{ 
+   CIRCLE [x X Y s .01 b 1 sat 1 a -.95]
+  if (i < 1.7)
+  	{ 
+  		Xn=cos(72*Y+F)-(1-2*i)*sin(72*X)
+    	Yn=sin(72*X  )+(2-3*i)*cos(72*Y-F) 
+    	R1(i+1/N,Xn,Yn)[h (110/N) z-1]
+	} 
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+
+shape R1
+{
+	loop 2 [x .5 y .5 r -1..1]
+		loop 25 [x 15]
+			loop 15 [y 15] 
+				R2 []
+}
+
+shape R2
+	rule { R3 [ r 45] }
+	rule { R3 [ r 135] }
+	rule { R3 [ ] }
+	rule { R3 [ r 90] }
+	rule 0.05 { 
+		loop 10 [ s 0.99 y 0.8 alpha -.2]
+		R3 []
+	}
+	rule 0.05 { 
+		loop 10 [ s 0.99 y 0.8 alpha -.2]
+		R3 [ r 45]
+	}
+
+path R3
+{
+	MOVETO(0,0)
+	LINETO(25..30, 0)
+	if(randint(100) > 97) {
+		loop 100 [ s .59 r -15..15 y 15..35] {
+			ARCTO(-1..1, 0..3, 1..5, CF::ArcCW)
+			ARCTO(28..35, 0..3, 1..10, CF::ArcCW)
+		}
+	}
+	MOVETO(0, 1)
+	LINETO(-25..30, 0)
+	STROKE()[]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1 []
+CF::Background = [b -0.9]
+
+shape R1 {
+	loop 2 [r 180] R2[sat 0.3 h 240]
+}
+
+shape R2
+	rule 50 {
+		R3 [s 0.8]
+		R2 [y 0.1 r 5 s 0.995 b 0.001]
+}
+
+	rule 0.1 {
+		R2 [flip 90]
+}
+
+	rule 0.1 {
+		R2 []
+		R2 [flip 90]
+}
+
+shape R3 {
+	CIRCLE [y 0.1 s 1.1 a -0.9 b -0.8]
+	CIRCLE []
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1 [b 1]
+CF::Background = [b -1]
+
+shape R1 {
+	loop 2 [r 180] R2 [r 33 hue 120 sat 1 b -0.5]
+}
+
+shape R2
+	rule 90 {
+		R3 []
+		R2 [y 0.1 r 0.3 s 0.999 b -0.0003]
+	}
+	
+	rule 0.2 {
+		R3 []
+		R2 [y 0.1 r 0.3 s 0.999]
+		R5 []
+	}
+	
+	rule 0.2 {
+		R3 []
+		R2 [y 0.1 r 0.3 s 0.999]
+		R6 []
+}
+
+shape R5 
+	rule 90 {
+		R3 []
+		R5 [y 0.1 r 1 s 0.996 b 0.005]
+}
+
+	rule 0.1 {
+		R3 []
+		R4 []
+}
+
+shape R6
+	rule 90 {
+		R3 []
+		R6 [y 0.1 r -1 s 0.996 b 0.005]
+}
+
+	rule 0.2 {
+		R3 []
+		R4 []
+}
+
+shape R4 {
+	R5 []
+	R6 []
+}
+
+shape R3 {
+	CIRCLE [y 0.5 s 1.5 b -0.5 a -0.9]
+	CIRCLE []
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+#Variations remarquables : I, V, ZZTPD
+
+CF::Background = [ hue 10 sat 0.1 b 1 ]
+
+shape R1
+{
+	R2 [ hue -10 sat 0.9 b 0.9 ]
+}
+
+shape R2
+{
+	R3 []
+	R3 [flip -90]
+}
+
+shape R3
+	rule {
+		SQUARE []
+		R3 [x 1 r 3 s 0.994]
+	}
+	
+	rule 0.005 {
+		SQUARE []
+		R5 [s 10]
+		R3 [x 1 r 3 s 0.994]
+	}
+	
+	rule 0.025 {
+		SQUARE []
+		CIRCLE [x -25..25 s 3..30 a -0.9]
+		R3 [x 1 r 3 s 0.994]
+	}
+	
+	rule 0.025 {
+		SQUARE []
+		R4 [x 15..20 z -100 s 5]
+		R3 [x 1 r 3 s 0.994]
+	}
+	
+	rule 0.003 {
+		SQUARE []
+		R3 [x 1 r 3 s 0.994]
+		R3 [x 1 r 3 s 0.994 flip 0]
+	}
+	
+	rule 0.01 {
+		SQUARE []
+		R3 [x 1 r 3 s 0.994 flip 0]
+	}
+	
+	rule 0.0007 {
+		SQUARE []
+		R6 [s 0.994]
+	}
+
+shape R4
+{
+	CIRCLE [a -0.65]
+	CIRCLE [hue 20 b 1 sat -1 s 0.9 a -0.25]
+}
+
+shape R5
+	rule {
+		CIRCLE [a -0.9]
+		R5 [x -0.8..0.8  y -0.8..0.8]
+	}
+	
+	rule 0.3 {
+		CIRCLE [a -0.9]
+	}
+
+shape R6
+{
+	loop 20 [x 0.2 s 1.1 1.04]
+		CIRCLE []
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+#Variations remarquables : B, BANANA
+
+CF::Background = [hue 60 sat 1 b -0.05]
+
+shape R1
+{
+	R2 [hue 30  sat 1  b 0.5]
+}
+
+shape R2
+{
+	R3 []
+	R3 [flip 90]
+}
+
+shape R3
+	rule {
+		SQUARE []
+		R3 [x 1 s 0.994]
+	}
+	
+	rule 0.02 {
+		SQUARE []
+		SQUARE [x 10..20 y 10..20 s 5..10 a -0.2..-0.9]
+		R3 [x 1 s 0.994]
+	}
+	
+	rule 0.008 {
+		SQUARE []
+		SQUARE [x 1 s 2]
+		R3 [x 1 s 0.994 r 90]
+	}
+	
+	rule 0.008 {
+		SQUARE []
+		SQUARE [x 1 s 2]
+		R3 [x 1 s 0.994 r -90]
+	}
+	
+	rule 0.002 {
+		SQUARE []
+		SQUARE [x 1 s 3]
+		R3 [x 1 s 0.994 r 90]
+		R3 []
+	}
+	
+	rule 0.002 {
+		SQUARE []
+		SQUARE [x 1 s 3]
+		R3 [x 1 s 0.994 r -90]
+		R3 []
+	}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background = [hue 120 sat .1 b -0.5]
+CF::MinimumSize = 0.2
+CF::Size = [s 100 150 y 20]
+ 
+shape R1 {
+  loop num=8000 []
+    R2 [hue (30..60) sat 1 b 0 x (-num/200..num/200) s .1]
+}
+
+shape R2
+	rule {
+	 CIRCLE []
+	 R2 [alpha -0.0005 .3 b (.00001...0005) .5 x (-.2...2) y -.2]
+	}
+
+	rule 0.002 {}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background = [hue 120 sat .1 b -0.5]
+CF::MinimumSize = 0.2
+CF::Size = [s 80 80 x -25 -35]
+ 
+shape R1 {
+ loop num=50 [z 1]
+    R2 [x (-2..52) b (.45-num/120)]
+ R3 [z 51]
+}
+ 
+shape R2 
+	rule {
+	 CIRCLE []
+	 R2 [[b .001 .40 r (-5..5) y .3 s 0.9999995]]
+	}
+	
+	rule 0.04 {
+	 CIRCLE []
+	 R2 [[b .0005 .40   x -.1 r (15..20) y .3  s (0.7*0.9999995)]]
+	 R2 [[b .0005 .40   x .1 r (-25..-10) y .3 s (0.7*0.9999995)]]
+	}
+
+shape R3 {
+ SQUARE [s 80 5 x 25 -2.5 b 0]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background = [b-1]
+
+shape R1
+{
+	R2 [ h 4.55 sat 0.9809 b 1.0000]
+}
+
+shape R2
+rule 99 { 
+	CIRCLE [] 
+	CIRCLE [size .9 brightness 1]
+	R2 [y .2 size .999 rotate .193]
+}
+
+rule 1 {
+	CIRCLE []
+	CIRCLE  [size 0.9 brightness 1]
+	R2 [y 0.3  size 0.99 flip 90]
+	R2 [y .92 size .6 brightness .2]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1[rotate 0..360]
+
+shape R1 
+rule 1 { thin[size 3] CIRCLE[x -1..1 size 2..6 2..6] enso[x -0.6..-1.4 size 1.029] }
+rule 0.1 {}
+
+shape invisible
+rule 1 { invisible[y .2 rotate -1] }
+rule 0.1 { thin[] }
+rule 0.01 {}
+
+shape thin
+rule 1 { CIRCLE[size 0.1..0.3 1] thin[y .2 rotate -1] }
+rule 0.03 { medium[] }
+rule 0.03 { invisible[] }
+
+shape medium
+rule 1 { CIRCLE[size 0.3..0.45 1.6 y -.2] CIRCLE[size 0.4..0.7 .8] CIRCLE[size 0.3..0.45 1.6 y .2] medium[y .2 rotate -1] }
+rule 0.01 { thick[] }
+rule 0.15 { thin[] }
+
+shape thick
+rule 1 { CIRCLE[size 0.95..1.1 1.5] thick[y .2 rotate -1] }
+rule 0.015 { medium[] }
+
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape Scene
+
+CF::Background = [b -1]
+CF::Size = [s 14 x -4 y -4]
+
+margin = 0.025
+w = 0.02
+
+shape Scene {
+	Grid [b 1 x 4 y 4]
+	loop 5 [x 2] {
+	loop 5 [y 2] {
+	Ball[ z 1]
+	}
+	}
+}
+
+shape testScene {
+	Grid [b 1 x 4 y 4]
+}
+
+path Ring {
+	MOVETO(1,0)
+	ARCTO(-1,0,1)
+	ARCTO(1,0,1)
+	CLOSEPOLY()
+	STROKE(w) []
+}
+
+shape Bars
+rule 5 {
+	n=randint(4)^2+randint(3)
+	loop i=n [] {
+		SQUARE [x (-1 + i/n) s w (2*sqrt(1-((i-n)/n)^2))]
+	}
+}
+
+shape Grid {
+	n = randint(5)*2+4
+	m = randint(5)*2 + 4
+	loop n+1 [x 1]
+	SQUARE[s w (m+w) x (-(n)/2) ]
+	loop m+1 [y 1]
+	SQUARE[s n w y (-(m)/2)]
+
+	i = n+m
+	loop i [] {
+		Block(n,m) [z 0.1]
+	}
+
+	loop n/2+m/2 [] Dot(n,m) [ z 0.8]
+	loop n/4+m/4 [] Connector(n,m) [z 0.2]
+}
+
+shape Dot(number n, number m)  {
+	CIRCLE[x randint(-n/2,n/2+1) 
+				y randint(-m/2,m/2+1)
+				s 0.2]
+}
+
+shape Connector(number n, number m)  {
+	
+	dn = randint(4)+1
+	dm = randint(4)+1
+	transform [ s ((-1)^randint(2)) ((-1)^randint(2))]{
+	transform [x (randint(n-dn+1)) y (randint(m-dm+1))] {
+	SQUARE [[x (-n/2) y (-m/2) r (-atan(dn/dm)) s w (sqrt(dn^2+dm^2)) y 0.5 ]]
+	}
+	}
+}
+
+shape Block(number n, number m) {
+	SQUARE [s (2-w-margin) b -1
+					x (randint(n)-n/2)
+					y (randint(m)-m/2)]
+}
+
+shape Ball 
+rule {
+	Ring[b 1]
+	Bars[b 1 r (randint(4)*90)]
+}
+rule {
+	Ring[b 1]
+	Bars[b 1 r (randint(4)*90)]
+	CIRCLE[s 2 b -1 z -0.5]
+} 
+rule {
+	
+	Bars[b 1 r (randint(4)*90)]
+	
+} 
+rule 4 {}
+rule 0.4{
+	Ring[b 1]
+	
+	CIRCLE[s 2 b -1 z -0.1 b 0.3 a -0.4]
+} 
+rule  0.4{
+	Ring[b 1]
+	
+	CIRCLE[s 2 b -1 z -0.1 b 0.3 a -0.4]
+	CIRCLE[s 2 b -1 z -0.8]
+} 
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+
+CF::Background = [hue 47 sat 0.1 ]
+
+shape  R1 {
+    R2 [hue 51 sat .185 .97 a 0.3 r 180]
+    R1 [s 0.5]
+    R1 [s 0.5 r 0.5]
+} 
+shape  R2 
+ rule 10 {
+       CIRCLE []
+       R2 [  s 0.998  y 0.42341  r 0.3 ]
+       R2 [  s 0.1  y 0.32321  r -0.3 ]
+  }
+
+rule 5 {
+	CIRCLE []
+       R2 [s 0.995 y 0.223 r -1  hue 0.03 flip 90]
+}
+
+rule 3  {
+	CIRCLE []
+       R2 [s 0.999 y 0.4263 r  13.4  flip 90  hue 0.42 b 0.03 a -0.1]
+       R2 [s 0.267 y 0.483  r  65    hue 0.2 b 0.13]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1 [ s 5 1 sat 1 h 205]
+CF::Background = [b -1]
+
+shape R1{
+	loop 2 [ r 180 y -3 x 350] R2[]
+}
+
+shape R2{
+	loop 350 [ x 1]
+		loop 25 [ y 1] R3[]
+}
+
+shape R3
+	rule {
+		R4[]
+		R3[y 1]
+	}
+	
+	rule .02{
+	}
+	
+shape R4
+	rule {
+		SQUARE[]
+		R4[s .45 b .25]
+	
+	}
+	rule .4{
+		CIRCLE[]
+		R4[s .65 b .28]
+	
+	}
+	rule .8{
+	}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+
+shape R1
+{
+	loop 180  [r 2 x 0.32 h 2] RING [ sat 0.5 h 152]
+}
+
+shape RING
+	rule 2 {
+		SQUARE [s 0.125 3.5 ]
+		SQUARE [s 0.15 1.35 y 22 b 0]
+		SQUARE [s 0.1 1.3 y 22 b 1 ]
+		RINGTWO [ y 3.6 b 1 h 100]
+		RINGTHREE [ y 5.4 ]
+	}
+	
+	rule 1.5 {
+		SQUARE [ s 0.15 4.05 ]
+		SQUARE [ s 0.10 4 b 0.9 sat 0.2]
+		SQUARE [ s 0.1 1.05 sat -1 b 0 y 22 ] 
+		SQUARE [ s 0.05 1  b 1 y 22 ]
+		RINGTWO [ y 3.4 b 1 h 100 ]
+		RINGTHREE [ y 5.5 ]
+	}
+
+shape RINGTWO
+	rule 2 {
+		SQUARE [ s 0.1 1.05 b -1 ]
+		SQUARE [ s 0.05 1 ]
+	}
+	
+	rule 1 {
+		SQUARE [ s 0.15 1.05 b -1 ]
+		SQUARE [ s 0.10 1 ]
+	}
+
+shape RINGTHREE
+	rule 2 {
+		SQUARE [ s 0.04 1 b -1 ]
+	}
+	
+	rule 2 {
+		SQUARE [ s 0.07 1 b -1 ]
+	}
+
+CF::Background = [ b -0.5 ]
+
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+
+CF::Background = [h 240 sat .5 b -.75]
+
+shape R1
+{
+	loop 6  [r 60] R2 [ h 240 sat 0.1 b .9]
+}
+
+shape R2
+rule 0.2 {
+	loop 15  [y .5] R4 []
+	R2 [y 7.5 s 0.99 b -0.001]
+}
+
+rule {
+	R4 []
+	R2 [y .5 s .99 b -0.001]
+}
+
+rule {
+	R3 []
+	R2  [r -60 s 0.99 b -0.001]
+}
+
+rule {
+	R3 []
+	R2 [ r 60 s .99 b -0.001]
+}
+
+rule 0.5 {
+	R3 []
+	R2 [r 60 s .99 b -0.001]
+	R2 [r -60 s .99 b -0.001]
+}
+
+rule 0.46 {
+	R3 []
+}
+
+shape R3
+ {
+	CIRCLE [s .2]
+}
+
+path R4 {
+	LINETO ( 0 , .5)
+	STROKE(CF::RoundCap) []
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+
+shape R1
+{
+	loop 120 [ x -7 ] bar []
+}
+
+shape bar
+	rule { R3 [ x -2 ] }
+	rule { R3 [ x -4 ] }
+	rule { R3 [ x -5 ] }
+	rule { R4 [ x -4 ] }
+	rule { R4 [ x -5 ] }
+	rule { R4 [ x -6 ] }
+	rule { R5 [ x -8 ] }
+	rule { R5 [ x -9 ] }
+
+shape R5
+	rule {
+		CIRCLE [ s 6 2 ]
+		R5 [ y .5 s .999 ]
+	}
+	rule 0.00035 { R6 [] }
+
+shape R6
+	rule { clockW6 [] }
+	rule { R7 [] }
+
+shape clockW6
+{
+	CIRCLE [ s 6 2 ]
+	clockW6 [ y .5 s .999 r .25 ]
+}
+
+shape R7
+{
+	CIRCLE [ s 6 2 ]
+	R7 [ y .5 s .999 r -.25 ]
+}
+
+shape R4
+	rule {
+		CIRCLE [ s 2 2 ]
+		R4 [ y .5 s .999 ]
+	}
+	rule 0.00035 { R12 [] }
+	
+shape R12
+	rule { R11 [] }
+	rule { R8 [] }
+
+shape R11
+{
+	CIRCLE [ s 2 2 ]
+	R11 [ y .5 s .999 r .25 ]
+}
+
+shape R8
+{
+	CIRCLE [ s 2 2 ]
+	R8 [ y .5 s .999 r -.25 ]
+}
+
+shape R3
+	rule {
+		CIRCLE [ s 1 2 ]
+		R3 [ y .5 s .999 ]
+	}
+	rule 0.00035 { R13 [] }
+
+shape R13
+	rule { R10 [] }
+	rule { R9 [] }
+
+shape R10
+{
+	CIRCLE [ s 1 2 ]
+	R10 [ y .5 s .999 r .25 ]
+}
+
+shape R9
+{
+	CIRCLE [ s 1 2 ]
+	R9 [ y .5 s .999 r -.25 ]
+}
+
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+
+shape R1
+{
+	loop 2 [flip 90]
+	R2[r 90   x -.5]
+
+	R2 [y -.5]
+
+	loop 2[flip 90]
+	R1 [s .5 r 90 x -.5 y  .5]
+
+	loop 2[flip 90]
+	R1 [s .5      x -.5 y -.5]
+}
+
+shape R2
+{
+	R3 [s 0.01 .01]
+	R2 [ s .5 y .25]
+}
+
+shape R3
+{
+    R4 [b 0]
+    R4 [s .99 x .5 y .5 b .1]
+    R4 [s .98 x .5 y .5 b .2]
+    R4 [s .97 x 1 y 1 b .3]
+    R4 [s .96 x 1 y 1 b .4]
+    R4 [s .95 x 2 y 2 b .5]
+    R4 [s .94 x 2 y 2 b .6]
+    R4 [s .93 x 3 y 3 b .7]
+    R4 [s .92 x 3 y 3 b .8]
+    R4 [s .91 x 4 y 4 b .9]
+    R4 [s .9 x 5 y 5 b 1]
+    R1 []
+}
+
+shape R4
+{
+    R5[]
+    R5 [flip 136 x 103 y 90]
+}
+
+shape R5
+{
+    R6[]
+    R6[flip 44]
+}
+
+shape R6
+{ 
+    loop 50 [[x 2]] R7[] 
+}
+
+shape R7
+	rule { R7[y 1] }
+	rule { SQUARE [x 1] }
+
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background = [b -1]
+ 
+shape R1
+	rule {
+	    R2 [s .1 a -.6 b 1 sat 1]
+	    R1 [r 90 x 8 s .8 h 20 z -1]
+	}
+	rule  {
+	    R2 [s .1 a -.6 b 1 sat 1]
+	    R1 [r 90 x 8 s .8 h 20 z -1]
+	    R1 [r -90 x 8 s .8 h 10 z -1]
+	}
+	rule {
+	    R2 [s .1 a -.6 b 1 sat 1]
+	    R1 [r 90 y 8 s .8 h 20 z -1]
+	}
+	rule  {
+	    R2 [s .1 a -.6 b 1 sat 1]
+	    R1 [r 90 y 8 s .8 h 20 z -1]
+	    R1 [r -90 y 8 s .8 h 10 z -1]
+	}
+	rule  {
+	    R2 [s .1 a -.6 b 1 sat 1]
+	    R1 [r 90 x 8 s .8 h 20 z -1]
+	    R1 [r -90 y 8 s .8 h 10 z -1]
+	}
+	rule  {
+	    R2 [s .1 a -.6 b 1 sat 1]
+	    R1 [r 90 y 8 s .8 h 20 z -1]
+	    R1 [r -90 x 8 s .8 h 10 z -1]
+	}
+
+shape R2
+{
+    R3 [b 0]
+    R3 [s .99 x .5 y .5 b .1]
+    R3 [s .98 x .5 y .5 b .2]
+    R3 [s .97 x 1 y 1 b .3]
+    R3 [s .96 x 1 y 1 b .4]
+    R3 [s .95 x 2 y 2 b .5]
+    R3 [s .94 x 2 y 2 b .6]
+    R3 [s .93 x 3 y 3 b .7]
+    R3 [s .92 x 3 y 3 b .8]
+    R3 [s .91 x 4 y 4 b .9]
+    R3 [s .9 x 5 y 5 b 1]
+}
+
+shape R3
+{
+    R4[]
+    R4 [flip 136 x 103 y 90]
+}
+
+shape R4
+{
+    R5[]
+    R5[flip 44]
+}
+
+shape R5
+{ 
+   loop 50  [[x 2]] R6 []
+}
+
+shape R6
+	rule { R6 [y 1] }
+	rule { SQUARE [x 1] }
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+CF::Tile = [s  1500 1000]
+startshape R1
+
+shape R1
+{
+	R2 [r 45 x 200 y +300 s 2] 
+	R2 [r 45 x -200 y -300 s 1]
+}
+
+shape R2
+{  
+	R3 [r +45] 
+	R3 [flip 90] 
+	R3 [r 180]
+}
+
+shape R3
+	rule {
+		R4 [s 2 .5 z +1] 
+		R3 [r .03  y .1 s   .999962 b +.00001 ]
+	}
+	
+	rule .0001 {
+		R4 [s 2 1 z +1]
+		R3 [ flip 90 r .03  y .1 s .999962 b +.0001 ] 
+	}
+	
+	rule .00001 {
+		R4 [s 2 1 z+1]
+		R3 [ flip 90 r .03  y .1 s .999962 b +.0001 ]
+		R3 [  r -90 y .1 s .85 b +.0001 ]
+	}
+
+shape R4
+	rule  2 { SQUARE [s 1 .1]}
+	rule .5 { SQUARE [x +3 s 2 .5 b -.3]}
+	rule .5 { SQUARE [ x -3 s 2 .5 b -.3]}
+	rule .5 { SQUARE [ x -8 s 7 .1 b -.3 r 45]}
+	rule .5 { SQUARE [ x +8 s 7 .1 b -.3 r -45]}
+
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background =[ h 201 sat 0.38 b -0.59 ]
+
+shape R1
+{
+
+     R2 []
+     loop 10  [ y -4 ] 
+     { 
+       loop 60  [ x 1 ] { R4 [ ] }
+       R2 [ y -4 ]
+     }
+}
+
+shape R2
+{ 
+	SQUARE [ x 30 y 1 s 62 .05 ] 
+}
+
+shape R3
+{ 
+	SQUARE [ x 0 y -1 s 0.05 4 ]
+}
+
+shape R4
+	rule 8.25 { R5 [ ] }
+	rule 0.25 { R3 [ s 4 1 ] } 
+	rule 0.5 { R3 [ s 8 1 ] } 
+
+shape R5
+	rule 2 { R6 [] } #m
+	rule 4 { R6 [ y -3 ] } #l
+	rule 12 { R8 [] } #e
+	rule 8 { loop 2  [ y -0.5 ] R8 [] } #a
+	rule 7 { loop 3  [ y -0.5 ] R8 [] } #o
+	rule 6 { loop 4  [ y -0.5 ] R8 [] } # i
+	rule 2 { loop 5  [ y -0.5 ] R8 [] } #u
+	rule { loop 6  [ y -0.5 ] R8 [] } #y
+	rule 4 { R7 []  } #d  
+	rule .1{ R7 [] loop 4  [ y -0.5 ] R8 [ y -1 ]  } #x
+	rule 9 { R3 [] } #t
+	rule 2 { loop 2  [x -0.2] R3 [] } #c
+	rule .7 { loop 3  [x -0.2] R3 [] } #k
+
+shape R8
+{
+     R6 []
+     SQUARE [ y 0.25 b -1 s 0.05 0.5 ]
+     CIRCLE [ y -0 b -1 s 0.25 ]
+}
+
+shape R7
+{
+     R6 [] 
+     SQUARE [ y -1 b -1 s 0.05 3 ] 
+     R6 [ y -3 ] 
+}
+
+shape R6
+{ 
+	CIRCLE [ y 0.5 b -1 s 0.25 ] 
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+
+shape R1
+{
+	loop 3 [y 40] R2[] 
+	loop 3 [y 40] R2[flip 90]
+	loop 3 [y 40] R2[ x 90] 
+	loop 3 [y 40] R2[ flip 90 x 90]
+
+}
+
+shape R2
+	rule .02
+	{
+		SQUARE [hue 1 sat .6 brightness 1]
+		R2 [x -2 s .998  |hue 4]
+	}
+	
+	rule
+	{
+		SQUARE [hue 1 sat .6 brightness 1]
+		R2 [r -2  s .998  hue .1|]
+	}
+	
+	rule 1.5
+	{
+		SQUARE [hue 1 sat .6 brightness 1]
+		R2 [r -2 y -1 s .998 hue .1|]
+	}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape START
+CF::Background = [ b -0.2 sat 1 hue 90 ]
+
+shape START
+{
+	START_ [ r 90 ]
+	START_ [ y -100 r -90 ]
+}
+shape START_
+{
+	ARM [ ]
+	ARM [ flip 180 ]
+}
+
+shape ARM
+rule { 
+	SHAPE [ ]
+	ARM [ y 0.5 s 0.999 ]
+}
+rule 0.005 {ARM_ [ ]}
+
+shape ARM_
+rule  {
+	SHAPE [ ]
+	ARM_ [ y 0.5 s 0.999 r 45 ]
+}
+rule  0.005 {ARM [ ]}
+
+shape SHAPE
+rule {
+	SQUARE [ x -2 hue 80 b 1 sat 1]
+	SQUARE [ hue 65 b 1 sat 1 ]
+	SQUARE [ x 2 hue 80 b 1 sat 1 ]
+	SHAPE [ x 5 ]
+}
+
+rule {
+	CIRCLE [ s 2 alpha -0.7 hue 80 b 1 sat 1]
+	SHAPE [ x 5 ]
+}
+rule 0.5 { }
+
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1 
+
+shape R1
+{
+	loop 20000  [] R2 []
+}
+
+shape R2
+	rule {
+		SQUARE [s .02 1 sat 1 a -.99]
+	}
+	rule 100 {
+		R2 [x 0.01]
+	}
+	rule 100 {
+		R2 [x -0.01]
+	}
+	rule 100{
+		R2 [s 1.002 .98 y -.01]
+	}
+	
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background = [hue 64.9 sat 0.23936 b -0.73686]
+shape R1
+{
+	R2[hue 70]
+}
+
+shape R2
+	rule
+	{
+		R3[]
+		R2[r 1.1 s 0.9996 alpha -0.0005 hue 0.001 sat 0.0001 b 0.0003]
+	}
+	
+	rule
+	{
+		R2[x 5 ]
+	}
+
+
+shape R3
+	rule
+	{
+		CIRCLE[s 2]
+		R3 [s 0.99 y 5]
+	}
+	
+	rule
+	{
+		CIRCLE[s 5]
+		R3[s 0.99 x 3]
+	}
+	
+	
+	rule
+	{
+		CIRCLE[s 10]
+		R3[s 0.99 x 5]
+	}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+
+shape R1
+	rule {
+		R2 []
+		R2 [ flip 90 ]
+		R1 [ ]
+	}
+	
+	rule .1 {
+	}
+
+shape ring
+	rule {
+		CIRCLE [ ]
+		R2 [ x 2 r .75 s .9999 ]
+	}
+	
+	rule {
+		CIRCLE [ s 2 ]
+		R2 [ x 2 r .5 s .9999 ]
+	}
+	
+	rule {
+		CIRCLE [ s 3 ]
+		R2 [ x 2 r .25 s .9999 ]
+	}
+	
+	rule {
+		CIRCLE [ s 4 ]
+		R2 [ x 2 r .5 s .9999 ]
+	}

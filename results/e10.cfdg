@@ -1,0 +1,83 @@
+//CF::Tile = [s 50 50] 
+//CF::Symmetry = CF::Dihedral, 3
+//CF::Symmetry = CF::Cyclic, 4
+//CF::Symmetry = CF::Dihedral, 4, 2, 1, 30 
+
+CF::Background = [hue 48  sat 1 b 1 ]
+
+startshape SHAPE1
+
+
+shape SHAPE1
+{
+	SHAPE2 [ x 9 r 90 ]
+}
+
+shape SHAPE2
+	rule {
+		SHAPE3 [ ]
+		SHAPE2 [ y 1 s 0.999 ]
+	}
+
+	rule 0.05 {
+		//SHAPE2 [ s 0.8 alpha -0.5 flip -45]
+		SHAPE2 [ s 0.8 alpha -0.005 ]
+	}
+
+	rule 0.0005 {
+		SHAPE3 [ s 10 5 alpha -0.5 ]
+		SHAPE2 [ alpha -0.005 b 0.05]
+	}
+
+	rule 0.001 {
+		SHAPE2 [ ]
+	}
+
+shape SHAPE3
+	rule {
+		SHAPE4 [ ]
+	}
+
+	rule 0.8 {}
+	
+	rule  {
+		SHAPE4 []
+		SHAPE3 [ x 0.3 alpha -0.5 r -5]
+	}
+
+	rule  {
+		SHAPE4  []
+		SHAPE3 [x 0.3 alpha -0.5 r 5]
+	}
+
+shape SHAPE4
+	rule {SQUARE [ s 0.1 15 ]}
+	rule {SHAPE5[]}
+
+shape SHAPE5
+	rule {
+		SHAPE6 [r 90]
+		SHAPE5 [x 10 r 0.5 s 0.99 b 0.005 z -1] // try with different r
+	}
+	rule 0.1 {
+		SHAPE5 [flip 0]
+	}
+	rule 0.2 {
+		SHAPE5 []
+	}
+
+shape SHAPE6
+	{loop 2  [[r .1  x 1]] SHAPE7 [] }
+
+shape SHAPE7
+	rule { SHAPE7 [y .1]  }
+	rule { 
+	  SHAPE8 [] 
+	}
+ 
+shape SHAPE8
+	{ loop 10 [[y 1 a -0.01]] SHAPE9 [] } // try with different loop
+
+shape SHAPE9
+	rule { SHAPE9 [ x 2 ] }
+	rule {SQUARE []}

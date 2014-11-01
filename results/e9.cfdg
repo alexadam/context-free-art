@@ -1,0 +1,61 @@
+//CF::Tile = [s 50 50] 
+//CF::Symmetry = CF::Dihedral, 2
+//CF::Symmetry = CF::Cyclic, 4
+//CF::Symmetry = CF::Dihedral, 4, 2, 1, 30 
+
+//CF::Background = [b -1]
+
+startshape SHAPE1
+
+shape SHAPE2
+{
+	SHAPE3[]
+	SHAPE3[[r 90]]
+	SHAPE3[[r 180]]
+	SHAPE3[[r -90]]
+	SHAPE2[x .75 r 90 s .5 flip 90]
+	SHAPE2[y .75 r 90 s .5 flip 90]
+	SHAPE2[x -.75 r 90 s .5 flip 90]
+	SHAPE2[y -.75 r 90 s .5 flip 90]
+}
+
+shape SHAPE3
+{
+	TRIANGLE[[s 1.2 s 1 sqrt(1/3) y ((sqrt(3)/6)-.1)  x .37 a -.85]]
+}
+
+shape SHAPE1
+{
+	SHAPE2 [r 45]
+}
+
+
+shape SHAPE2
+rule {
+	SHAPE4 [r 90]
+	SHAPE2 [x 10 r 0.25 s 0.99 b 0.005 z -1] // try with different r
+}
+rule 0.1 {
+	SHAPE2 [flip 0]
+}
+rule 0.2 {
+	SHAPE2 []
+}
+
+shape SHAPE4
+	{loop 10  [[r .1  x 1]] SHAPE5 [] }
+
+shape SHAPE5
+	rule { SHAPE5 [y .1]  }
+	rule { 
+	  SHAPE6 [] 
+	}
+ 
+shape SHAPE6
+	{ loop 500 [[y 1 a -0.01]] SHAPE7 [] } // try with different loop
+
+shape SHAPE7
+	rule { SHAPE7 [ x 2 ] }
+	rule {SQUARE []}
+
+

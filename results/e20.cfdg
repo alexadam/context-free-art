@@ -1,0 +1,19 @@
+//CF::Tile = [s 10 10] 
+CF::Symmetry = CF::Dihedral, rand(5,15) //rand(1,100)
+//CF::Symmetry = CF::Cyclic, 20
+//CF::Symmetry = CF::Dihedral, 3, 2, 1, 30
+
+//CF::Background = [hue 0  sat -1 b 1 ] //[h 35 sat 0.5 b -0.1]   CF::Background=[h 70 sat 0.4 b -0.3 ]
+
+startshape SHAPE1
+
+shape SHAPE1
+	rule {
+		SQUARE [ ]
+		SHAPE1 [y 5 s 0.6 1]
+	}
+
+	rule .5 {
+		SHAPE1 [ r 45 ]
+		SHAPE1 [ r 45 ]
+	}

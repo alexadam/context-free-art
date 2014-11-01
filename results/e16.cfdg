@@ -1,0 +1,16 @@
+//CF::Tile = [s 10 10] 
+//CF::Symmetry = CF::Dihedral, rand(5,15) //rand(1,100)
+//CF::Symmetry = CF::Cyclic, 2
+//CF::Symmetry = CF::Dihedral, 5, 2, 1, 30
+
+CF::Background = [hue 0  sat -1 b 1 ] //[h 35 sat 0.5 b -0.1]   CF::Background=[h 70 sat 0.4 b -0.3 ]
+
+
+startshape SHAPE1
+
+shape SHAPE1 {
+	f1 = rand(20)
+	f2 = rand(20)
+	r1 = rand(0.7, 1)
+	loop i=360 [r 1] CIRCLE [y ( 0.5 + sin(6.28*f1*i/72) * sin(6.28*f2*i/72)) s 0.01 (sin(6.28*f1*i/72) * sin(6.28*f2*i/72)) a -0.8]
+}

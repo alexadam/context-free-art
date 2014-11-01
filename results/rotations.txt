@@ -1,0 +1,554 @@
+startshape R1
+
+shape R1
+{
+	R2 [ hue 120 sat .5 ]
+}
+
+shape R2
+ {
+	SQUARE [ b -1]
+	SQUARE [ s .995 b 1 ]
+	R2 [r 30 s .995 hue +1 ]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+
+shape R1
+ {
+  TRIANGLE []
+  R1 [size .99 x 1 rotate 10]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+
+shape R1
+ {
+	loop 200  [ x 1 r 40  s 1.1]
+	CIRCLE [hue 41.0 sat 0.7573 b 0.8491]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background = [ b -1 ]
+shape R1
+
+{
+	SQUARE [  sat 1.0000 b 0.9418]
+	R1 [s.98 r 16 y .55 h 14 sat .8 b.5 ]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background =[h 1.95 sat 0.9783 b 0.8343 ]
+
+shape R1
+
+{
+	loop 1500  [h 35r 20y -3.5s 1.11]
+	CIRCLE[ x 1 y 2 skew .1 800]   
+	
+	loop 1500  [h 35r 20y -3.5s 1.11]
+	CIRCLE[r 90 x -1 y 2skew .1 800]   
+	
+	loop 1500  [h 35r 20y -3.5s 1.11]
+	CIRCLE[ x -2.8  y 2  skew .1 800]   
+	
+	loop 1500  [h 35r 20y -3.5s 1.11]
+	CIRCLE[r 90 x -1.5 y -2  skew .1 800]   
+	
+	loop 1500  [h 35r 20y -3.5s 1.11]
+	CIRCLE[ x -1.0 y 2 skew .1 800 h 0.00 sat 0.0000 b 1.0000 ]   
+}  
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+
+CF::Background = [b -1]
+
+shape R1
+ {
+	loop 400  [ r 1 h 3.81 sat 0.8352 b 1.0000 s 1]
+	TRIANGLE [ x 7 skew 80 4 ]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+CF::Background = [b -1]
+startshape R1
+shape R1
+{
+	loop 12  [r 30] R3[]
+}
+shape R2
+rule {
+	CIRCLE [h 23 sat 1 b 1 s.9]
+	R3 [s.99 y .9 h -10..10 sat 1 b 1 r 2]
+}
+
+rule {
+	CIRCLE [h 21 sat 1 b 1 ]
+	R3 [s.96 y .9 h -10..10 sat 1 b 1 r -2 ]
+}
+
+shape R3
+
+{
+	R2 []
+	R3 [r 45 s .3 y 2]
+	R3 [r -45 s.3 y 2]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+
+CF::Background = [ b-1]
+
+shape R1
+
+{
+	loop 40 [ r 90 y .3 h 10 ]
+	TRIANGLE [h 212.17 sat 0.8138 b 1.0000 ]
+	CIRCLE [b-1 .3 x -.13 y .15 s .3]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background = [ b -1 ]
+ 
+shape R1
+{ 
+	loop 18  [ r 20 ] 
+	R2 [h 100.54 sat 0.9720 b 1.0000  ] 
+}
+ 
+shape R2
+{ 
+	loop 9000 [ hue .1  s 1.01 r 3 f 90] 
+	R3 [ sat 1 b 1 a -.95 y -1 h 1.08 sat 1.0000 b 1.0000] 
+}
+ 
+shape R3
+ {
+	TRIANGLE [h 240 sat 1 b 1 h 54.11 sat 1.0000 b 1.0000]
+	R3 [r 707 s .95 b -.05 h 297.65 sat 0.7902 b 1.0000 ]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background = [a -1]
+shape R1
+ {
+	loop 25  [ rotate 85 x 3 h 2]
+	TRIANGLE [ skew 110 0 h 354.64 sat 1.0000 b 1.0000 ]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background = [ b -1 ]
+
+shape R1
+ { 
+	SQUARE [ h 119.40 sat 0.9055 b 0.3536 ]
+	SQUARE [ s 87 h 230.41 sat 0.7497 b .05367 ]
+	R1 [ skew 0.2 0.0015 s .999 b .001]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background = [ h 13.27 sat 1.0000 b 0.6464 ]
+
+shape R1
+ 
+{
+	loop 200 [ r 49 x 10 y 10 s 0.989 h 48.86 sat 1.0000 b 0.9116]
+	SQUARE [skew 91 50  ]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background = [ a -1 ]
+
+shape R1
+{
+	R2 [ x .5 y .5 h 302.38 sat 0.5394 |b 1]
+}
+
+shape R2
+{
+	CIRCLE [ ]	
+	R2 [ x .05  y .05 r 1 s 0.998  b 0.005|]
+	R3 [s .2 x 0.5 y 0.5 r 90]
+}
+
+shape R3
+rule {
+	CIRCLE [ ]	
+	R3 [ x .05  y .05 s 0.998 ]
+}
+
+rule 5 {
+	CIRCLE [ ]	
+	R3 [ x .4  y .4 s 0.989 ]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background = [ b -1 ]
+shape R1
+{ 
+	R2 [h 267.97 sat 1.0000 b 0.5193] 
+}
+
+shape R2
+ {
+	TRIANGLE [s 1.01 b -1]
+	TRIANGLE[r 3 b 1]
+	TRIANGLE[r 1 b -1]
+	TRIANGLE[r 2 b 1]
+	TRIANGLE[r 4 b 1]
+	TRIANGLE[r 5 b 1]
+	TRIANGLE[r 3 b 1]
+	TRIANGLE[r 1 b -1]
+	TRIANGLE[r 2 b 1]
+	TRIANGLE[r 4 b 1]
+	TRIANGLE[r 5 b 1]
+	R2 [r 2 s.98 h 8.62 sat 1.0000 b 0.0000 ]
+} 
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background = [ b -1 ]
+shape R1
+{ 
+	R2 [h 267.97 sat 1.0000 b 0.5193] 
+}
+
+shape R2
+ {
+	CIRCLE[r 1 b -1]
+	CIRCLE[r 3 b 1]
+	CIRCLE[r 5 b 1]
+	SQUARE[r 1 b -1]
+	CIRCLE[r 3 b 1]
+	CIRCLE[r 5 b 1]
+	R2 [r 2 s.98 h 113.06 sat 1.0000 b 1.0000 ]
+} 
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background = [ b-1 ]
+
+shape R1
+{ 
+	R2 [ ]
+}
+
+shape R2
+ {
+	loop 5  [ ] TRIANGLE [ b-1 ]
+	TRIANGLE [ size 0.99 brightness 1h 185.19 sat 0.4909 b 1.0000 ]  
+	R2 [ size .99 rotate 299 ] 
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background =[b -.3 sat .12 hue 60]
+shape R1
+{loop 6  [r 144] R2[]}
+ 
+shape R2
+{
+	loop 150  [s .96 b .1 h .24	]
+	CIRCLE [s .6 z 2 h -24 b .3 sat 1]
+	loop 60  [s 1.006 h .24 a -.3]
+	CIRCLE [s .6 z 1 h -24 a -.9]
+	loop 150  [h 3 r rand_static(-2,2) s 0.97] 
+	TRIANGLE [ h -30 r 180 sat 1 b 1 y-1 a-.95]
+	loop 150  [r .1 s 0.97] 
+	TRIANGLE[ h -30 r 180 b .3 sat 1 s 1.2 y-1 a-.0 z -1]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+
+shape R1
+{
+	loop 6  [y 1.4] R2 []
+}
+shape R2
+{
+	loop 6  [x 1.4] R3 []
+}
+
+shape R3
+{
+	R4 []
+	R3 [s .97 r 45]
+}
+
+shape R4
+rule .2{
+	SQUARE [b 0]
+}
+
+rule {
+	SQUARE [b 1]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+CF::Size = [ s 5 4 x 3.52 y -2.5  ]
+
+startshape R1
+
+shape R1
+{
+	loop 10000[[x -.2 r -20 y 1 z -.1 r 30  h .45 size .997 .9963 ]] 
+	R2[]    
+}
+
+shape R2
+rule {
+	SQUARE [[skew 10 20 size 1 .8 r 49.5 sat 1 b .6 h 290 alpha -.3]]
+}
+
+rule .5 {
+	SQUARE [[skew 10 20 size 1 .8 r 49.5 sat .95 b .55 h 265 alpha -.3]]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1 
+
+CF::Background = [b -1]
+
+shape R1
+ {
+	loop 6  [r (360/6)]
+	{loop 36  [s .9 1.01 h .1 a -.01]
+		{loop 2  [f 90]
+			{loop 24  [s .8 r 7.4 f -124 y 1 x .5 h 24 sat .5 a -.24]
+				CIRCLE [b 1 h 55 sat .4]
+			}
+		}
+	}
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Background = [ hue 270 sat 1.0 b -0.92 ]
+shape R1
+{
+	R2 []
+	R2 [r 180]
+}
+
+shape R2
+{
+	loop 2  [flip 90 r 180 ] R3 []
+}
+
+shape R3
+{
+	SQUARE [ s 15 0.006 hue 75 sat .8 b 1 ]
+	R3 [r .3 y -.035 s .99 hue .5]
+}
+
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1[]
+
+shape R1 {
+   CIRCLE []
+   R1 [s 0.996 x (15*cos(137,51)) y (15*sin(137,51)) r 137,51 ]  //360/(PHI*PHI)
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1 [ s 0.5..1.5 h 1..360 r 5 sat 0.7]
+
+CF::Size = [ s 1 ]
+
+shape R1 {
+  SQUARE [ b -1 a -0.97 s 1.3 ]
+  SQUARE [ b -1 sat -1 s 1.007 ]
+  SQUARE [ b 1 ]
+  R1 [ f -3..3 h -7..7 x -0.07..0.07 s 0.99 ]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1 [hue 220 sat 0 b 1 a -1]
+
+CF::Size = [size 320]
+CF::Background = [hue 280 sat .5 b -.9]
+CF::MinimumSize = 0.25
+
+shape R1 {
+    R2 [z -10 size 500 hue -10 sat 1 b .8 a -1]
+    loop 360 [rotate 1]
+        R4 [y 20 rotate -0.5..0.5 sat .3]
+}
+
+shape R2 {
+    loop 220 [z .1 size 0.9875 a .00034 sat -.005]
+        CIRCLE []
+}
+
+shape R3 {
+    CIRCLE [z -7 x -1.5..1.5 sat 1 a .2]
+    CIRCLE [z -5 x -0.8..0.8 hue 0..360 sat 1]
+    CIRCLE [z 10 x -0.35..0.35]
+}
+
+shape R5 
+rule {
+    R3 []
+    R5 [y 1 size .99 a 0.025]
+}
+rule .14 {
+    CIRCLE [z -8 size 10 2 sat 1]
+    CIRCLE [z -1 size 3 2 hue 0..360]
+    CIRCLE [z -1 size 2 1.8]
+    R4 []
+}
+rule .01 { 
+	R4 [] 
+}
+
+shape R4 
+rule { 
+    R3 [] 
+    R4 [y 1 size .995 a -0.05] 
+}
+rule .05 { 
+	R5 [] 
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+CF::Background = [hue 50 b -.05 saturation +.12 ] 
+startshape R1
+
+shape R1 {
+	R2 ( 1, 4 ) [ h 110 a -0.80 b+.4 sat +1 z +1 ]
+}
+
+shape R2 ( natural depth, number end ) {
+	if( depth < end )
+	{
+		loop 6 [ r 60 ] 
+		{
+			CIRCLE [ y ( 0.5 * ( depth ) ) ]
+			R3 ( depth ) [ y ( 0.5 * depth ) r 30 ]
+		}
+		R2 ( depth + 1, end ) []
+	}
+	else
+	{
+		CIRCLE [ ]
+	}
+}
+
+shape R3 ( number depth ) {
+	loop ( depth -1 ) [ x - 0.5 ] {
+		CIRCLE [ x - 0.5 ]
+	}
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+startshape R1
+CF::Symmetry = CF::Dihedral, 18
+CF::Background = [b-1]
+
+shape R1
+{
+	TRIANGLE [h 14 sat .8 b .5 a -.8 r 12]
+	R1 [s.98 r 14 y .2 h 14 sat .8 b .5]
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+
+CF::Symmetry = CF::Dihedral, 6
+CF::Tile = [s 2]
+
+startshape R1
+
+shape R1 {
+	loop u=20 [ y -.2  b .935 a -0.6 hue 10 sat 1] CIRCLE [ r 120 f 45  s   1..u  1...01 ]
+}
